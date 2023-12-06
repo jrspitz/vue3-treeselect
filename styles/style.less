@@ -2,8 +2,8 @@
  * Dependencies
  */
 
-@import "~material-colors/dist/colors.less";
-@import "~easings-css/index.less";
+@import "material-colors/dist/colors.less";
+@import "easings-css/index.less";
 
 /**
  * Variables
@@ -202,7 +202,8 @@
 }
 
 // based on: https://github.com/strues/retinajs/blob/master/dist/retina.less
-.retina(@path, @cap: 2) { // stylelint-disable-line selector-class-pattern
+.retina(@path, @cap: 2) {
+  // stylelint-disable-line selector-class-pattern
   @lowretina: ~"(min-resolution: 1.5dppx)";
   @2xpath: replace(@path, "(\.\w+)$", "@2x$1");
 
@@ -212,9 +213,10 @@
     background-image: url(@2xpath);
   }
 
-  .create-queries() when (@cap >= 2) {
-    .loop(@env) when (@env <= @cap) {
+  .create-queries() when (@cap >=2) {
+    .loop(@env) when (@env <=@cap) {
       @retinapath: replace(@path, "(\.\w+)$", "@@{env}x$1");
+
       @media (min-resolution: @env * 96dpi) {
         background-image: url(@retinapath);
       }
@@ -224,6 +226,7 @@
 
     .loop(2);
   }
+
   .create-queries();
 }
 
@@ -251,9 +254,12 @@
 }
 
 @keyframes vue-treeselect-animation-bounce {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(0);
   }
+
   50% {
     transform: scale(1);
   }
@@ -271,6 +277,7 @@
  */
 
 .vue-treeselect__multi-value-item--transition {
+
   &-enter-active,
   &-leave-active {
     transition-duration: @treeselect-transition-duration;
@@ -299,6 +306,7 @@
 }
 
 .vue-treeselect__menu--transition {
+
   &-enter-active,
   &-leave-active {
     // to be overriden
@@ -311,6 +319,7 @@
 }
 
 .vue-treeselect__list--transition {
+
   &-enter-active,
   &-leave-active {
     // to be overriden
@@ -494,6 +503,7 @@
 
   &.vue-treeselect__multi-value-item-new {
     background: @treeselect-multi-value-item-bg-new;
+
     &:hover {
       background: @treeselect-multi-value-item-bg-new;
     }
@@ -527,7 +537,7 @@
     display: none;
   }
 
-  > svg {
+  >svg {
     width: @treeselect-multi-value-remove-size;
     height: @treeselect-multi-value-remove-size;
   }
@@ -745,7 +755,7 @@
   }
 }
 
-.generate-level-indentations(@i) when (@i >= 0) {
+.generate-level-indentations(@i) when (@i >=0) {
   .generate-level-indentations((@i - 1));
 
   .vue-treeselect__indent-level-@{i} {
@@ -768,6 +778,7 @@
     }
   }
 }
+
 .generate-level-indentations(@treeselect-max-level);
 
 .vue-treeselect__option {
@@ -779,6 +790,7 @@
 }
 
 .vue-treeselect__option--selected {
+
   // note that these should override `.vue-treeselect__option--highlight`
   .vue-treeselect--single & {
     background: @treeselect-option-selected-bg;
@@ -895,7 +907,7 @@
   .retina(@treeselect-checkbox-indeterminate-icon, 3);
   background-size: image-size(@treeselect-checkbox-indeterminate-icon);
 
-  .vue-treeselect__checkbox--indeterminate > & {
+  .vue-treeselect__checkbox--indeterminate>& {
     opacity: 1;
   }
 
@@ -912,7 +924,7 @@
   // Set initial height to 1px.
   transform: scaleY(1 / unit(image-height(@treeselect-checkbox-checked-icon)));
 
-  .vue-treeselect__checkbox--checked > & {
+  .vue-treeselect__checkbox--checked>& {
     opacity: 1;
     transform: scaleY(1);
   }

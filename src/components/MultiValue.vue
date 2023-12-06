@@ -1,7 +1,7 @@
-<script>
-  import MultiValueItem from './MultiValueItem'
-  import Input from './Input'
-  import Placeholder from './Placeholder'
+<script lang="jsx">
+  import MultiValueItem from './MultiValueItem.vue'
+  import Input from './Input.vue'
+  import Placeholder from './Placeholder.vue'
 
   export default {
     name: 'vue-treeselect--multi-value',

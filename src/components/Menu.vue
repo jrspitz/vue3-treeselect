@@ -1,8 +1,8 @@
-<script>
+<script lang="jsx">
   import { MENU_BUFFER } from '../constants'
   import { watchSize, setupResizeAndScrollEventListeners } from '../utils'
-  import Option from './Option'
-  import Tip from './Tip'
+  import Option from './Option.vue'
+  import Tip from './Tip.vue'
 
   const directionMap = {
     top: 'top',
