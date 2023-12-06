@@ -1535,7 +1535,8 @@ export default {
           const { id, label, children, isDefaultExpanded } = node
           const isRootNode = parentNode === NO_PARENT_NODE
           const level = isRootNode ? 0 : parentNode.level + 1
-          const isBranch = Array.isArray(children) || children === null
+          // A branch needs to have a non-zero array of children
+          const isBranch = (Array.isArray(children) && children.length) || children === null
           const isLeaf = !isBranch
           const isDisabled = !!node.isDisabled || (!this.flat && !isRootNode && parentNode.isDisabled)
           const isNew = !!node.isNew

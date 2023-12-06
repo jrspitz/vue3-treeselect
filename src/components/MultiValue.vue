@@ -1,7 +1,8 @@
-<script>
-  import MultiValueItem from './MultiValueItem'
-  import Input from './Input'
-  import Placeholder from './Placeholder'
+<script lang="jsx">
+  import { TransitionGroup } from 'vue'
+  import MultiValueItem from './MultiValueItem.vue'
+  import Input from './Input.vue'
+  import Placeholder from './Placeholder.vue'
 
   export default {
     name: 'vue-treeselect--multi-value',
@@ -44,12 +45,12 @@
       // }
 
       return renderValueContainer(
-        <transition-group class="vue-treeselect__multi-value" tag="div" name="vue-treeselect__multi-value-item--transition" appear={true} >
+        <TransitionGroup class="vue-treeselect__multi-value" tag="div" name="vue-treeselect__multi-value-item--transition" appear={true} >
           {this.renderMultiValueItems()}
           {this.renderExceedLimitTip()}
           <Placeholder key="placeholder" />
           <Input ref="input" key="input" />
-        </transition-group>,
+        </TransitionGroup>,
       )
     },
   }

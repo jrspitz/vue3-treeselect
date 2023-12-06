@@ -6,6 +6,6 @@ export const warning = process.env.NODE_ENV === 'production'
     if (!checker()) {
       const message = [ '[Vue-Treeselect Warning]' ].concat(complainer())
       // eslint-disable-next-line no-console
-      console.error(...message)
+      console.warn(...message)
     }
   }
