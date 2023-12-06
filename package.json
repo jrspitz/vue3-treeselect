@@ -13,6 +13,10 @@
     ".": {
       "import": "./dist/vue3-treeselect.js",
       "require": "./dist/vu3-treeselect.umd.cjs"
+    },
+    "./dist/style.css": {
+      "import": "./dist/style.css",
+      "require": "./dist/style.css"
     }
   },
   "scripts": {
